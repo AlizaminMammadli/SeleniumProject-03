@@ -12,7 +12,7 @@ import java.time.Duration;
 public class US_01 extends BaseDriver {
 
     @Test
-    public void TC_01() {
+    public void US_01 () {
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.get("https://shopdemo.e-junkie.com/");
