@@ -50,8 +50,8 @@ public class US_02 extends BaseDriver {
 
         driver.switchTo().frame(iframeSecuredCardInfo);
 
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@placeholder='Card number']")));
         WebElement cardNumber = driver.findElement(By.xpath("//input[@placeholder='Card number']"));
-        wait.until(ExpectedConditions.elementToBeClickable(cardNumber));
         cardNumber.clear();
 
         WebElement cardExpiration = driver.findElement(By.xpath("//input[@placeholder='MM / YY' and @inputmode='numeric']"));
