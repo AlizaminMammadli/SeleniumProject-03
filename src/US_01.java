@@ -23,44 +23,33 @@ public class US_01 extends BaseDriver {
         WebElement addToCartBtn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"products\"]/div[1]/div/div[2]/a/div/div[2]/button")));
         addToCartBtn.click();
 
-        MyFunc.wait(1);
-
         WebElement iframeElement = driver.findElement(By.cssSelector("[class='EJIframeV3 EJOverlayV3']"));
         driver.switchTo().frame(iframeElement);
 
         WebElement addPrmCodeBtn = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[class='Apply-Button Show-Promo-Code-Button']")));
         addPrmCodeBtn.click();
-        MyFunc.wait(1);
 
         Assert.assertTrue("Apply Promo code görülmedi", driver.findElement(By.cssSelector("[class='Promo-Code-Value']")).isDisplayed());
-        MyFunc.wait(1);
-
+       
         WebElement invalidPromoCode1 = driver.findElement(By.cssSelector("[class='Promo-Code-Value']"));
         invalidPromoCode1.sendKeys("122524");
-        MyFunc.wait(1);
-
+       
         WebElement applyCodeBtn1 = driver.findElement(By.cssSelector("[class='Promo-Apply']"));
         applyCodeBtn1.click();
-        MyFunc.wait(1);
-
+        
         Assert.assertTrue("Invalid promo code", driver.findElement(By.xpath("//span[text()='Invalid promo code']")).isDisplayed());
-        MyFunc.wait(1);
-
+        
         WebElement addPrmCodeBtn2 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[class='Apply-Button Show-Promo-Code-Button']")));
         addPrmCodeBtn2.click();
-        MyFunc.wait(1);
 
         WebElement invalidPromoCode2 = driver.findElement(By.cssSelector("[class='Promo-Code-Value']"));
         invalidPromoCode2.sendKeys("654254");
-        MyFunc.wait(2);
 
         WebElement applyCodeBtn2 = driver.findElement(By.cssSelector("[class='Promo-Apply']"));
         applyCodeBtn2.click();
-        MyFunc.wait(2);
 
         Assert.assertTrue("Invalid promo code", driver.findElement(By.xpath("//span[text()='Invalid promo code']")).isDisplayed());
-        MyFunc.wait(2);
-
+        
         driver.quit();
     }
 }
