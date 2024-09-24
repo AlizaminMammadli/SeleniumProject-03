@@ -1,17 +1,14 @@
 import Utility.BaseDriver;
-import Utility.MyFunc;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.awt.*;
-import java.awt.event.KeyEvent;
 import java.time.Duration;
 
 public class US_04 extends BaseDriver {
@@ -29,7 +26,7 @@ public class US_04 extends BaseDriver {
 
         WebElement iframe1=driver.findElement(By.cssSelector("[class='EJIframeV3 EJOverlayV3']"));
         driver.switchTo().frame(iframe1);
-        MyFunc.wait(2);
+
         WebElement creditcard = driver.findElement(By.xpath("//span[text()='Visa, AMEX, MasterCard, Maestro, Discover']"));
         js.executeScript("arguments[0].click();", creditcard);
 
@@ -42,22 +39,22 @@ public class US_04 extends BaseDriver {
         WebElement name = driver.findElement(By.xpath("//*[@placeholder='Name On Card']"));
         name.sendKeys("Jimmy Handers");
 
-        MyFunc.wait(1);
+
         driver.switchTo().frame(1);
         WebElement cardnumber = driver.findElement(By.xpath("(//span[@class='InputContainer'])[1]"));
         actions.click(cardnumber).build().perform();
         actions.sendKeys("4242424242424242").build().perform();
-        MyFunc.wait(1);
+
 
         WebElement aytarih = driver.findElement(By.xpath("(//div[@class='CardField-input-wrapper']//span)[8]"));
         actions.click(aytarih).build().perform();
         actions.sendKeys("12 24").build().perform();
-        MyFunc.wait(1);
+
 
         WebElement cvc= driver.findElement(By.xpath("(//span[@class='InputContainer'])[3]"));
         actions.click(cvc).build().perform();
         actions.sendKeys("000").build().perform();
-        MyFunc.wait(1);
+
 
         driver.switchTo().parentFrame();
         WebElement paybutton= driver.findElement(By.xpath("//button[@class='Pay-Button']"));
