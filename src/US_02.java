@@ -32,36 +32,6 @@ public class US_02 extends BaseDriver {
         wait.until(ExpectedConditions.elementToBeClickable(bankCredCartButton));
         bankCredCartButton.click();
 
-        WebElement email = driver.findElement(By.xpath("//input[@placeholder='Email']"));
-        wait.until(ExpectedConditions.visibilityOf(email));
-        email.clear();
-        WebElement confirmEmail = driver.findElement(By.xpath("//input[@placeholder='Confirm Email']"));
-        confirmEmail.clear();
-        WebElement name = driver.findElement(By.xpath("       //input[@placeholder='Name On Card']"));
-        name.clear();
-        WebElement phone = driver.findElement(By.xpath("//p[@class='Billing-Phone Inline']//input[@autocomplete='phone']"));
-        phone.clear();
-        WebElement company = driver.findElement(By.xpath("//p[@class='Billing-Company']//input[@autocomplete='company']"));
-        company.clear();
-        WebElement notes = driver.findElement(By.xpath("//p[@class='BuyerNotes']//textarea"));
-        notes.clear();
-
-        WebElement iframeSecuredCardInfo = driver.findElement(By.xpath("//iframe[contains(@name, '__privateStripeFrame')]"));
-
-        driver.switchTo().frame(iframeSecuredCardInfo);
-
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@placeholder='Card number']")));
-        WebElement cardNumber = driver.findElement(By.xpath("//input[@placeholder='Card number']"));
-        cardNumber.clear();
-
-        WebElement cardExpiration = driver.findElement(By.xpath("//input[@placeholder='MM / YY' and @inputmode='numeric']"));
-        cardExpiration.clear();
-
-        WebElement cardCVC = driver.findElement(By.xpath("//input[@placeholder='CVC']"));
-        cardCVC.clear();
-
-        driver.switchTo().parentFrame();
-
         WebElement payButton = driver.findElement(By.xpath("//button[@class='Pay-Button']"));
         payButton.click();
 
