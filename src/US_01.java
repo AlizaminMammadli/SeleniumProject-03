@@ -12,7 +12,7 @@ import java.time.Duration;
 public class US_01 extends BaseDriver {
 
     @Test
-    public void US_01 () {
+    public void US_01() {
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.get("https://shopdemo.e-junkie.com/");
@@ -29,19 +29,22 @@ public class US_01 extends BaseDriver {
         WebElement addPrmCodeBtn = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[class='Apply-Button Show-Promo-Code-Button']")));
         addPrmCodeBtn.click();
 
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[class='Promo-Code-Value']")));
         Assert.assertTrue("Apply Promo code görülmedi", driver.findElement(By.cssSelector("[class='Promo-Code-Value']")).isDisplayed());
-       
+
         WebElement invalidPromoCode1 = driver.findElement(By.cssSelector("[class='Promo-Code-Value']"));
         invalidPromoCode1.sendKeys("122524");
-       
+
         WebElement applyCodeBtn1 = driver.findElement(By.cssSelector("[class='Promo-Apply']"));
         applyCodeBtn1.click();
-        
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Invalid promo code']")));
         Assert.assertTrue("Invalid promo code", driver.findElement(By.xpath("//span[text()='Invalid promo code']")).isDisplayed());
-        
+
         WebElement addPrmCodeBtn2 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[class='Apply-Button Show-Promo-Code-Button']")));
         addPrmCodeBtn2.click();
 
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[class='Promo-Code-Value']")));
         WebElement invalidPromoCode2 = driver.findElement(By.cssSelector("[class='Promo-Code-Value']"));
         invalidPromoCode2.sendKeys("654254");
 
@@ -49,7 +52,7 @@ public class US_01 extends BaseDriver {
         applyCodeBtn2.click();
 
         Assert.assertTrue("Invalid promo code", driver.findElement(By.xpath("//span[text()='Invalid promo code']")).isDisplayed());
-        
+
         driver.quit();
     }
 }
