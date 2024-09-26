@@ -33,7 +33,7 @@ public class US_08 extends BaseDriver {
         action.moveToLocation(1, 1).click().build().perform();
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//h2[text()='14-Day FREE Trial']")));
 
-        for (int i = 1; i <= 27; i++) {
+        for (int i = 1; i <= 29; i++) {
             action.keyDown(Keys.TAB).build().perform();
             action.keyUp(Keys.TAB).build().perform();
         }
