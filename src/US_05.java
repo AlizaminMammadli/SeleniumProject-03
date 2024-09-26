@@ -73,6 +73,8 @@ public class US_05 extends BaseDriver {
         WebElement download =driver.findElement(By.xpath("//span[text()='Download']"));
         js.executeScript("arguments[0].click();", download);
 
+        driver.quit();
+
 
     }
 }
